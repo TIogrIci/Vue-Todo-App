@@ -1,17 +1,19 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" width="25%">
-    <HelloWorld msg="Hello Vue in CodeSandbox!"/>
+    <TodoInput/>
+    <TodoList/>
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld";
+import TodoInput from "./components/TodoInput"
+import TodoList from "./components/TodoList"
 
 export default {
   name: "App",
   components: {
-    HelloWorld
+    TodoInput,
+    TodoList,
   }
 };
 </script>
