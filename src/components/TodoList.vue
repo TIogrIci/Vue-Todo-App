@@ -3,7 +3,6 @@
         <div v-for="(todo, key) in allTodos" :key="key">
             <TodoItem :todo="todo"/>
         </div>
-        
     </div>
 </template>
 

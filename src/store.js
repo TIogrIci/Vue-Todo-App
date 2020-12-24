@@ -7,8 +7,8 @@ export default new Vuex.Store({
     state: {
         todos: [
             {
-                id: 1,
-                title: "One"
+                id: "",
+                title: "" 
             },
         ],
     },
@@ -21,6 +21,9 @@ export default new Vuex.Store({
         },
         deleteTodo({ commit }, id) {
             commit("delete_todo", id)
+        },
+        editTodo({ commit }, id, title) {
+            commit("edit_todo", id, title)
         }
     },
     mutations: {
@@ -30,6 +33,9 @@ export default new Vuex.Store({
         },
         delete_todo(state, id) {
             state.todos = state.todos.filter(todo => todo.id != id)
+        },
+        edit_todo(state, id, title) {
+            state.todos[id] = title
         }
     }
 })

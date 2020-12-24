@@ -1,8 +1,13 @@
 <template>
     <div>
         <div class="row">
-            <h3 class="col">{{ todo.title }}</h3>
-            <button class="btn btn-primary" >編集</button>
+            <div v-if="editing">
+                <input type="text" v-model="title">
+            </div>
+            <div v-else>
+                <h3 class="col">{{ title }}</h3>
+            </div>
+            <button class="btn btn-primary" @click="editTodoI()">編集</button>
             <button class="btn btn-danger"  @click="deleteTodo(todo.id)">削除</button>
         </div>
     </div>
@@ -12,11 +17,26 @@
 import { mapActions } from 'vuex'
 
 export default {
+    data() {
+        return {
+            editing: false,
+            title: this.todo.title
+        }
+    },
     props: {
         todo: {}
     },
     methods: {
-        ...mapActions(["deleteTodo"]),
+        ...mapActions(["deleteTodo", "editTodo"]),
+        editTodoI() {
+            if (this.editing != true) {
+                return this.editing = true
+            }
+            else {
+                this.editTodo(this.todo.id, this.title)
+                return this.editing = false
+            }
+        }
     }
 }
 </script>
