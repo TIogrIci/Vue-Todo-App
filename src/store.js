@@ -7,13 +7,13 @@ export default new Vuex.Store({
     state: {
         todos: [
             {
-                id: "",
-                title: "" 
+                id: "initialized_id",
+                title: "Title" 
             },
         ],
     },
     getters: {
-        allTodos: (state) => state.todos
+        allTodos: (state) => state.todos.filter(todo => todo.id != "initialized_id")
     },
     actions: {
         addTodo({ commit }, todo) {

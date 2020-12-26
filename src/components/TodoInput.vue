@@ -15,7 +15,7 @@ import { v1 } from "uuid"
 export default {
     data() {
         return {
-            todoText: ""
+            todoText: "",
         }
     },
     methods: {
@@ -27,6 +27,6 @@ export default {
             })
             return this.todoText = ""
         }
-    }   
+    }
 }
 </script>

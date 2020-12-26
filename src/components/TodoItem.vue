@@ -7,7 +7,9 @@
             <div v-else>
                 <h3 class="col">{{ title }}</h3>
             </div>
-            <button class="btn btn-primary" @click="editTodoI()">編集</button>
+            <button class="btn btn-primary" @click="editTodoI()">
+                {{ editOrUpdate }}
+            </button>
             <button class="btn btn-danger"  @click="deleteTodo(todo.id)">削除</button>
         </div>
     </div>
@@ -20,7 +22,12 @@ export default {
     data() {
         return {
             editing: false,
-            title: this.todo.title
+            title: this.todo.title,
+        }
+    },
+    computed: {
+        editOrUpdate: function() {
+            return this.editing ? "更新" : "編集"
         }
     },
     props: {
